@@ -8,7 +8,7 @@
 <hr>
 
 
-Union Find 并查集
+Union Find 并查集 ( 深度优先，一路递归过去 )
 
 
 Disjoint Set
