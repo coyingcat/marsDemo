@@ -4,6 +4,17 @@
 
 
 
+<hr>
+
+
+<hr>
+
+内存
+
+* weak 表
+
+* ARC, 引用计数表
+
 
 <hr>
 
@@ -22,6 +33,11 @@
 <hr>
 
 
+
+
+
+
+
 <hr>
 
 
@@ -37,3 +53,5 @@ OBJC_PRINT_LOAD_METHODS
 
 
 可以在执行load方法以及加载category的时候打印log信息
+
+

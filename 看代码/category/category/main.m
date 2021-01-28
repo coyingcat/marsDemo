@@ -41,6 +41,30 @@
     NSLog(@"%@",@"MyAddition");
 }
 
+
++ (void)load
+{
+    NSLog(@"%@",@"load in Category1");
+}
+
+
+
+// 关联对象，添加属性
+- (void)setName:(NSString *)name
+{
+    objc_setAssociatedObject(self,
+                             "name",
+                             name,
+                             OBJC_ASSOCIATION_COPY);
+}
+
+- (NSString*)name
+{
+    NSString *nameObject = objc_getAssociatedObject(self, "name");
+    return nameObject;
+}
+
+
 @end
 
 
