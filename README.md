@@ -10,6 +10,17 @@
 
 Union Find 并查集
 
+
+Disjoint Set
+不相交
+
+
+
+
+bijection
+双向单射
+
+
 <hr>
 
 
