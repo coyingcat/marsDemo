@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		26941D9525C25C0A00444FCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26941D9425C25C0A00444FCD /* main.m */; };
 		26941D9D25C25C2C00444FCD /* 0.m in Sources */ = {isa = PBXBuildFile; fileRef = 26941D9C25C25C2C00444FCD /* 0.m */; };
-		26941DA425C25D6000444FCD /* a_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 26941DA325C25D6000444FCD /* a_1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,7 +125,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26941DA425C25D6000444FCD /* a_1.m in Sources */,
 				26941D9D25C25C2C00444FCD /* 0.m in Sources */,
 				26941D9525C25C0A00444FCD /* main.m in Sources */,
 			);

@@ -75,7 +75,7 @@ __declspec(allocate(".objc_inithooks$B")) static void *OBJC_CATEGORY_SETUP[] = {
 
 
 
-// __DATA 区
+// __DATA 区， DATA 段
 static struct _class_t *L_OBJC_LABEL_CLASS_$ [1] __attribute__((used, section ("__DATA, __objc_classlist,regular,no_dead_strip")))= {
 &OBJC_CLASS_$_MyClass,
 };
