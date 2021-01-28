@@ -3,6 +3,19 @@
 
 
 
+<hr>
+
+
+<hr>
+
+
+runloop 两：
+
+
+* 等待事件处理， wait
+
+
+* 通知去处理事件， observe
 
 <hr>
 
