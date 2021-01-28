@@ -172,6 +172,14 @@ load 方法，调用顺序：
 
 https://stackoverflow.com/questions/22809848/objective-c-runtime-run-code-at-deallocation-of-any-object/31560217#31560217
 
+
+
+ Fun With the Objective-C Runtime: Run Code at Deallocation of Any Object
+
+
+
+
+ 
 <hr>
 
 
@@ -180,3 +188,17 @@ dyld 是 the **dy**namic **l**ink e**d**itor 的缩写，
 
 
 它是苹果的动态链接器
+
+
+
+<hr>
+
+
+
+循环缓冲区，
+
+
+一个容量，
+
+
+一个指针
