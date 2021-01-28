@@ -79,6 +79,7 @@ void _objc_init(void)
             if (cat->instanceMethods ||  cat->protocols
                 ||  cat->instanceProperties)
             {
+                //  把category的实例方法、协议以及属性添加到类上
                 addUnattachedCategoryForClass(cat, cls, hi);
                 if (isRealized(cls)) {
                     remethodizeClass(cls);
@@ -94,6 +95,7 @@ void _objc_init(void)
             if (cat->classMethods  ||  cat->protocols
                 /* ||  cat->classProperties */)
             {
+                //  把category的类方法和协议添加到类的metaclass上
                 addUnattachedCategoryForClass(cat, cls->isa, hi);
                 if (isRealized(cls->isa)) {
                     remethodizeClass(cls->isa);
@@ -105,3 +107,7 @@ void _objc_init(void)
             }
         }
     }
+
+
+
+//  拿到的catlist就是上节中讲到的编译器为我们准备的category_t数组
