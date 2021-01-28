@@ -100,3 +100,36 @@ attachCategoryMethods(class_t *cls, category_list *cats,
     _free_internal(mlists);
 
 }
+
+
+
+///  attachMethodLists方法
+
+
+
+for (uint32_t m = 0;
+             (scanForCustomRR || scanForCustomAWZ)  &&  m < mlist->count;
+             m++)
+        {
+            SEL sel = method_list_nth(mlist, m)->name;
+            if (scanForCustomRR  &&  isRRSelector(sel)) {
+                cls->setHasCustomRR();
+                scanForCustomRR = false;
+            } else if (scanForCustomAWZ  &&  isAWZSelector(sel)) {
+                cls->setHasCustomAWZ();
+                scanForCustomAWZ = false;
+            }
+        }
+       
+        // Fill method list array
+        newLists[newCount++] = mlist;
+
+
+    //  category的方法没有“完全替换掉”原来类已经有的方法
+    //  加回来了
+
+    // ...
+    // Copy old methods to the method list array
+    for (i = 0; i < oldCount; i++) {
+        newLists[newCount++] = oldLists[i];
+    }
