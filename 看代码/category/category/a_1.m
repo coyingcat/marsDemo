@@ -7,78 +7,60 @@
 
 #import <Foundation/Foundation.h>
 
-//
-
-
-static struct /*_method_list_t*/ {
-unsigned int entsize;  // sizeof(struct _objc_method)
-unsigned int method_count;
-struct _objc_method method_list[1];
-}
-
-//  实例方法列表
-
-_OBJC_$_CATEGORY_INSTANCE_METHODS_MyClass_$_MyAddition __attribute__ ((used, section ("__DATA,__objc_const"))) = {
-sizeof(_objc_method),
-1,
-{{(struct objc_selector *)"printName", "v16@0:8", (void *)_I_MyClass_MyAddition_printName}}
-};
-
-
-
-
-//
-
-
-
-
-static struct /*_prop_list_t*/ {
-unsigned int entsize;  // sizeof(struct _prop_t)
-unsigned int count_of_properties;
-struct _prop_t prop_list[1];
-}
-
-
-
-//  属性列表
-_OBJC_$_PROP_LIST_MyClass_$_MyAddition __attribute__ ((used, section ("__DATA,__objc_const"))) = {
-sizeof(_prop_t),
-1,
-{{"name","T@\"NSString\",C,N"}}
-};
-
-extern "C" __declspec(dllexport) struct _class_t OBJC_CLASS_$_MyClass;
 
 
 
 
 
-static struct _category_t _OBJC_$_CATEGORY_MyClass_$_MyAddition __attribute__ ((used, section ("__DATA,__objc_const"))) =
+//  addUnattachedCategoryForClass只是把类和category做一个关联映射，
+
+//  而remethodizeClass才是真正去处理添加事宜的功臣。
+
+
+
+static void remethodizeClass(class_t *cls)
 {
-"MyClass",
-0, // &OBJC_CLASS_$_MyClass,
-(const struct _method_list_t *)&_OBJC_$_CATEGORY_INSTANCE_METHODS_MyClass_$_MyAddition,
-0,
-0,
-(const struct _prop_list_t *)&_OBJC_$_PROP_LIST_MyClass_$_MyAddition,
-};
+    category_list *cats;
+    BOOL isMeta;
 
+    rwlock_assert_writing(&runtimeLock);
 
+    isMeta = isMetaClass(cls);
 
-static void OBJC_CATEGORY_SETUP_$_MyClass_$_MyAddition(void ) {
-_OBJC_$_CATEGORY_MyClass_$_MyAddition.cls = &OBJC_CLASS_$_MyClass;
+    // Re-methodizing: check for more categories
+    if ((cats = unattachedCategoriesForClass(cls))) {
+        chained_property_list *newproperties;
+        const protocol_list_t **newprotos;
+       
+        if (PrintConnecting) {
+            _objc_inform("CLASS: attaching categories to class '%s' %s",
+                         getName(cls), isMeta ? "(meta)" : "");
+        }
+       
+        // Update methods, properties, protocols
+       
+        BOOL vtableAffected = NO;
+        attachCategoryMethods(cls, cats, &vtableAffected);
+       
+        newproperties = buildPropertyList(NULL, cats, isMeta);
+        if (newproperties) {
+            newproperties->next = cls->data()->properties;
+            cls->data()->properties = newproperties;
+        }
+       
+        newprotos = buildProtocolList(cats, NULL, cls->data()->protocols);
+        if (cls->data()->protocols  &&  cls->data()->protocols != newprotos) {
+            _free_internal(cls->data()->protocols);
+        }
+        cls->data()->protocols = newprotos;
+       
+        _free_internal(cats);
+
+        // Update method caches and vtables
+        flushCaches(cls);
+        if (vtableAffected) flushVtables(cls);
+    }
 }
-#pragma section(".objc_inithooks$B", long, read, write)
-__declspec(allocate(".objc_inithooks$B")) static void *OBJC_CATEGORY_SETUP[] = {
-(void *)&OBJC_CATEGORY_SETUP_$_MyClass_$_MyAddition,
-};
-
-
-
-// __DATA 区， DATA 段
-static struct _class_t *L_OBJC_LABEL_CLASS_$ [1] __attribute__((used, section ("__DATA, __objc_classlist,regular,no_dead_strip")))= {
-&OBJC_CLASS_$_MyClass,
-};
 
 
 
@@ -86,10 +68,35 @@ static struct _class_t *L_OBJC_LABEL_CLASS_$ [1] __attribute__((used, section ("
 
 
 
+//  对于
 
-static struct _class_t *_OBJC_LABEL_NONLAZY_CLASS_$[] = {
-&OBJC_CLASS_$_MyClass,
-};
-static struct _category_t *L_OBJC_LABEL_CATEGORY_$ [1] __attribute__((used, section ("__DATA, __objc_catlist,regular,no_dead_strip")))= {
-&_OBJC_$_CATEGORY_MyClass_$_MyAddition,
-};
+//  添加类的实例方法而言，又会去调用attachCategoryMethods这个方法，我们去看下attachCategoryMethods：
+
+static void
+attachCategoryMethods(class_t *cls, category_list *cats,
+                      BOOL *inoutVtablesAffected)
+{
+    if (!cats) return;
+    if (PrintReplacedMethods) printReplacements(cls, cats);
+
+    BOOL isMeta = isMetaClass(cls);
+    method_list_t **mlists = (method_list_t **)
+        _malloc_internal(cats->count * sizeof(*mlists));
+
+    // Count backwards through cats to get newest categories first
+    int mcount = 0;
+    int i = cats->count;
+    BOOL fromBundle = NO;
+    while (i--) {
+        method_list_t *mlist = cat_method_list(cats->list[i].cat, isMeta);
+        if (mlist) {
+            mlists[mcount++] = mlist;
+            fromBundle |= cats->list[i].fromBundle;
+        }
+    }
+
+    attachMethodLists(cls, mlists, mcount, NO, fromBundle, inoutVtablesAffected);
+
+    _free_internal(mlists);
+
+}

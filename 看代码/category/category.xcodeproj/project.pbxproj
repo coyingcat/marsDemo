@@ -28,7 +28,8 @@
 		26941D9425C25C0A00444FCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26941D9C25C25C2C00444FCD /* 0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = 0.m; sourceTree = "<group>"; };
 		26941D9F25C25CF600444FCD /* a_0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = a_0.m; sourceTree = "<group>"; };
-		26941DA325C25D6000444FCD /* a_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = a_1.m; sourceTree = "<group>"; };
+		26941DA325C25D6000444FCD /* b_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = b_1.m; sourceTree = "<group>"; };
+		26941DA725C2656800444FCD /* a_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = a_1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +62,11 @@
 		26941D9325C25C0A00444FCD /* category */ = {
 			isa = PBXGroup;
 			children = (
-				26941D9425C25C0A00444FCD /* main.m */,
 				26941D9C25C25C2C00444FCD /* 0.m */,
 				26941D9F25C25CF600444FCD /* a_0.m */,
-				26941DA325C25D6000444FCD /* a_1.m */,
+				26941DA725C2656800444FCD /* a_1.m */,
+				26941DA325C25D6000444FCD /* b_1.m */,
+				26941D9425C25C0A00444FCD /* main.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
