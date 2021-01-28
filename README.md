@@ -125,3 +125,43 @@ OBJC_PRINT_LOAD_METHODS
 
 
 面试，就是讲故事
+
+
+
+
+
+<hr>
+
+
+
+
+<hr>
+
+
+
+
+<hr>
+
+
+信号量 wait
+
+
+signal
+
+
+控制
+
+[iOS实录16：GCD小结之控制最大并发数](https://www.jianshu.com/p/5d51a367ed62)
+
+
+
+
+[OC中load方法](https://www.jianshu.com/p/a48a6aa87d39)
+
+
+load 方法，调用顺序：
+
+父类 >子类> 分类。
+类和分类中的load方法都会执行
+父类永远大于子类，子类永远大于分类
+如果有多个分类会按照编译顺序执行，先编译先执行
