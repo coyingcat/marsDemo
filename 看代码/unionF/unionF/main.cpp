@@ -32,6 +32,12 @@ public:
         //  这个是为了减少跳动次数
         //  parent[x] == find(parent[x]);
     }
+    
+    
+    
+    // 每次修改的是，root 值，也就是根的值
+    
+    // 根的值，也就是要查询到的值
     void to_union(int x1, int x2)
     {
         parent[find(x1)] = find(x2);

@@ -57,6 +57,8 @@ runloop 两：
 * weak 表
 
 
+有一个 Union
+
 
 * ARC, 引用计数表
 
@@ -107,3 +109,19 @@ OBJC_PRINT_LOAD_METHODS
 可以在执行load方法以及加载category的时候打印log信息
 
 
+<hr>
+
+
+讲故事，使用数据结构，
+
+
+就够了
+
+
+操作代码，不是很值得提到
+
+
+<hr>
+
+
+面试，就是讲故事
