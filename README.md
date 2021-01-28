@@ -29,6 +29,8 @@ runloop 两：
 * ARC, 引用计数表
 
 
+* 关联对象表， AssociationsHashMap
+
 <hr>
 
 
