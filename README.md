@@ -14,6 +14,8 @@ Union Find 并查集
 Disjoint Set
 不相交
 
+不相干集合
+
 
 
 
@@ -54,7 +56,14 @@ runloop 两：
 
 * weak 表
 
+
+
 * ARC, 引用计数表
+
+
+
+因为多指向，可以等价
+哈希表，和并查集
 
 
 * 关联对象表， AssociationsHashMap
