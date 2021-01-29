@@ -202,3 +202,16 @@ dyld 是 the **dy**namic **l**ink e**d**itor 的缩写，
 
 
 一个指针
+
+
+
+<hr>
+
+
+
+mutex 互斥锁，
+
+相当于 Semaphore 的数目为 2
+
+
+区别如图：
