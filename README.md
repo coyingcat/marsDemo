@@ -275,3 +275,44 @@ conditional_variable
 
 for 循环
 
+
+
+<hr>
+
+
+<hr>
+
+
+注册到 auto release pool，
+
+
+就是把对象添加到，auto release pool，内部的数组
+
+
+
+<hr>
+
+
+
+<hr>
+
+6 设计原则:
+
+* 单一职责原则(Single-Responsibility Principle)　　
+
+
+
+* 里氏代换原则(Liskov Substitution Principle)
+
+
+* 依赖倒置原则(Dependence Inversion Principle)
+
+
+* 接口隔离原则(Interface Segregation Principle)
+
+
+* 迪米特原则(Law of Demeter)
+
+
+
+* 开放－封闭原则(Open-Closed Principle)
