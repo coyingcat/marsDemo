@@ -55,9 +55,13 @@ runloop 两：
 内存
 
 * weak 表
-地址：Union （并查集）
+地址：Union <del>（并查集）</del>
 
 Union { 数量, [ 对象数组] } 
+
+
+
+SideTable -> WeakTable 表 -> WeakEntry 条目
 
 
 * ARC, 引用计数表
