@@ -305,14 +305,16 @@ for 循环
 * 里氏代换原则(Liskov Substitution Principle)
 
 
-* 依赖倒置原则(Dependence Inversion Principle)
+* 依赖倒置原则(Dependence Inversion Principle)，便于替换
 
 
 * 接口隔离原则(Interface Segregation Principle)
 
 
-* 迪米特原则(Law of Demeter)
-
+* 迪米特原则(Law of Demeter), 最小知识原则，也就是封装
+访问控制
 
 
 * 开放－封闭原则(Open-Closed Principle)
+不用改已有的代码，
+出错就会少
