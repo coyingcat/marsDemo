@@ -55,9 +55,9 @@ runloop 两：
 内存
 
 * weak 表
+地址：Union （并查集）
 
-
-有一个 Union
+Union { 数量, [ 对象数组] } 
 
 
 * ARC, 引用计数表
@@ -67,6 +67,8 @@ runloop 两：
 因为多指向，可以等价
 哈希表，和并查集
 
+
+地址： 数量
 
 * 关联对象表， AssociationsHashMap
 
