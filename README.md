@@ -215,3 +215,48 @@ mutex 互斥锁，
 
 
 区别如图：
+
+
+<hr>
+
+
+
+C++ 异步， future
+
+
+* future get result
+未来，获取结果
+
+* promise pass argv
+保证，将要传参
+
+
+<hr>
+
+C++ 实现 async， 子线程做事情，不用管
+
+开线程，完了
+
+
+<hr>
+
+
+C++ 实现 async， 子线程算结果，主线程打印
+
+开线程，
+
+有线程共享的变量，
+
+
+互斥锁，mutex
+
+条件变量, 保证代码运行的先后
+conditional_variable
+
+
+<hr>
+
+
+
+锁的例子是，
+厕所
