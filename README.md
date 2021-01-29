@@ -324,3 +324,41 @@ for 循环
 * 开放－封闭原则(Open-Closed Principle)
 不用改已有的代码，
 出错就会少
+
+<hr>
+
+
+
+<hr>
+
+
+内存对齐
+
+
+字节对齐
+
+
+
+<hr>
+
+
+
+<hr>
+
+
+[iOS底层原理：weak的实现原理](https://juejin.cn/post/6844904101839372295#heading-0)
+
+
+[Objective-C runtime机制(7)——SideTables, SideTable, weak_table, weak_entry_t](https://blog.csdn.net/u013378438/article/details/82790332)
+
+
+
+SideTable 翻译过来的意思是“边桌”，可以放一下小东西。这里，主要存放了OC对象的引用计数和弱引用相关信息。
+
+
+
+
+方法，无非增删改查，
+本文有密集恐惧症，代码少少，
+
+面试时，口述代码，厉害咯
