@@ -420,3 +420,35 @@ SideTable 翻译过来的意思是“边桌”，可以放一下小东西。这�
 
 
 除了 assgin 的情况，还有一些情况下 delegate 是被对象强引用 retain 的，比如 NSURLSession，delegate 将被 retain 到 session 对象失效为止。
+
+
+
+
+[OC浅拷贝、深拷贝和完全拷贝](https://blog.csdn.net/liuyinghui523/article/details/79411652)
+
+
+
+byte dance,
+
+我们更看重潜力，而不是你在某一方面的知识，
+
+我们问的比较均衡
+
+
+抖音社交方向，绍华
+
+
+
+死锁，遇到过吗
+
+NSDictionary 是不是线程安全的
+
+
+__bright,
+
+
+static ,
+
+__block
+
+block 为什么不能修改外部的临时变量
