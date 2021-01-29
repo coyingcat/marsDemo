@@ -260,3 +260,18 @@ conditional_variable
 
 锁的例子是，
 厕所
+
+
+
+<hr>
+
+
+<hr>
+
+
+
+什么时候用 auto release pool,
+
+
+for 循环
+
