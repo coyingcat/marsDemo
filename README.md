@@ -144,7 +144,7 @@ OBJC_PRINT_LOAD_METHODS
 <hr>
 
 
-
+Page 69
 
 <hr>
 
@@ -353,7 +353,7 @@ id __weak cat = obj;
 * objc_storeWeak
 
 
-把 obj 的地址，作为键，
+把 obj 的地址 ( 赋值对象的地址 ) ，作为键，
 
 
 把 cat 的，附有 __weak 修饰符的变量的地址作为值， 添加到 weak 表
@@ -399,3 +399,24 @@ SideTable 翻译过来的意思是“边桌”，可以放一下小东西。这�
 
 
 说话慢一点呗
+
+
+
+
+[谈谈 HTTPS](https://juejin.cn/post/6844903504046211079)
+
+
+
+
+
+
+[[iOS] 从 application delegate 引申三点](https://juejin.cn/post/6844903677887528967)
+
+
+
+
+循环引用及两个及以上对象出现引用环，导致对象无法释放的情况。一般在block，delegate，NSTimer时容易出现这个问题。
+
+
+
+除了 assgin 的情况，还有一些情况下 delegate 是被对象强引用 retain 的，比如 NSURLSession，delegate 将被 retain 到 session 对象失效为止。
